@@ -1,0 +1,20 @@
+/* Estilo general para el carrusel */
+.carousel-item img {
+    width: 100%;         /* Asegura que la imagen ocupe todo el ancho */
+    object-fit: cover;   /* Mantiene las proporciones de la imagen */
+  }
+  
+  /* Altura predeterminada para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .carousel-item img {
+      height: 300px;     /* Altura para dispositivos móviles */
+    }
+  }
+  
+  /* Altura para pantallas medianas y grandes */
+  @media (min-width: 769px) {
+    .carousel-item img {
+      height: 500px;     /* Altura para dispositivos más grandes */
+    }
+  }
+  
