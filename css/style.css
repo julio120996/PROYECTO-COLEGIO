@@ -1,20 +1,540 @@
-/* Estilo general para el carrusel */
-.carousel-item img {
-    width: 100%;         /* Asegura que la imagen ocupe todo el ancho */
-    object-fit: cover;   /* Mantiene las proporciones de la imagen */
+/* ------------------------------ MENÚ DESPLEGABLE ------------------------------ */
+
+
+/* Mostrar menú desplegable al pasar el mouse */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  position: absolute; /* Asegura que no desplace otros elementos */
+  top: 100%; /* Ubica el menú justo debajo del enlace */
+  left: 0;
+  z-index: 1000;
+}
+
+/* Ajustar la apariencia de los elementos */
+.nav-item .dropdown-menu {
+  margin-top: 0; /* Elimina el margen por defecto */
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0; /* Inicialmente oculto */
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1; /* Mostrar cuando el mouse está encima */
+}
+
+/* Estilo de la imagen en el menú */
+.img-menu {
+  height: 90px;
+  padding-left: 50px;
+}
+
+/* Estilo del logo en el menú */
+.a-logo {
+  margin-right: -10px;
+  padding-left: 40px;
+}
+
+/* Estilo del logo en el slideMenu */
+#slideMenu .menu-header img {
+  max-height: 100px; /* Ajusta el tamaño de la imagen */
+  width: auto; /* Mantiene la proporción */
+}
+
+
+/* Animación de rebote */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
   }
-  
-  /* Altura predeterminada para pantallas pequeñas */
-  @media (max-width: 768px) {
+  30% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Aplicar la animación al logo */
+#logo {
+  animation: bounceIn 1.5s ease-out forwards;
+}
+
+/* Animación de latido al pasar el mouse */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Estilo para el logo al pasar el mouse */
+#logo:hover {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* ------------------------------ ESTILOS DEL BOTÓN ------------------------------ */
+
+/* Estilo al pasar el mouse sobre el botón */
+.btn-menu:hover {
+  background-color: #ff0000;
+}
+
+/* ------------------------------ MENÚ RESPONSIVO ------------------------------ */
+
+/* Ajustes en pantallas pequeñas (menos de 992px) */
+@media (max-width: 992px) {
+  .navbar-brand {
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-collapse.collapsing ~ .navbar-brand #logo,
+  .navbar-collapse.show ~ .navbar-brand #logo {
+    max-height: 90px;
+    transform: scale(1.2);
+  }
+
+  .navbar-toggler {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .collapse.navbar-collapse {
+    text-align: center;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-item {
+    text-align: center;
+  }
+}
+
+/* ------------------------------ ESTILO DEL CIERRE DEL MENÚ ------------------------------ */
+/* Estilo para el icono de cierre */
+#closeMenu {
+  background: none; /* Elimina cualquier fondo */
+  border: none; /* Elimina el borde */
+  font-size: 2.5rem;
+  color: #ff0000;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 10px;
+  z-index: 2000;
+  transition: color 0.3s ease, transform 0.3s ease;
+  outline: none; /* Elimina el borde de enfoque */
+}
+
+/* Estilo al pasar el mouse */
+#closeMenu:hover {
+  color: #d90000;
+  transform: scale(1.1);
+}
+
+/* Estilo al hacer clic (eliminamos cualquier borde o fondo) */
+#closeMenu:active {
+  transform: scale(1);
+  color: #ff0000;
+  outline: none; /* Asegura que no aparezca un borde al hacer clic */
+  background: none; /* Elimina cualquier fondo al hacer clic */
+}
+
+/* Eliminar borde azul cuando el elemento recibe foco */
+#closeMenu:focus {
+  outline: none; /* Elimina el borde azul del foco */
+  background: none; /* Elimina cualquier fondo de enfoque */
+}
+
+
+
+/* ------------------------------ MENÚ DESLIZABLE ------------------------------ */
+
+/* Estilo general del menú deslizable */
+#slideMenu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Oculto inicialmente */
+  width: 100%;
+  height: 100%;
+  background-color: #f8f9fa;
+  transition: right 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease-out;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+}
+
+/* Menú activo con transición suave */
+#slideMenu.active {
+  right: 0;
+  opacity: 1;
+  transition: right 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease-out;
+}
+
+/* Estilo de la lista de menús */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* Estilo de cada ítem del menú */
+.menu-item {
+  position: relative;
+}
+
+.menu-list > li {
+  margin: 10px 0;
+}
+
+.menu-list a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #333;
+  display: block;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.menu-list a:hover {
+  color: #007bff;
+}
+
+/* Submenú oculto inicialmente */
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 20px;
+  display: none;
+}
+
+/* Mostrar submenú al pasar el mouse */
+.menu-item:hover .submenu,
+.menu-item:focus-within .submenu {
+  display: block;
+}
+
+.submenu li {
+  margin: 5px 0;
+}
+
+.submenu a {
+  font-size: 1rem;
+  color: #555;
+}
+
+.submenu a:hover {
+  color: #007bff;
+}
+
+/* Estilo del navbar (Menú Bar) */
+/* Reducir aún más los márgenes y paddings del navbar */
+.navbar {
+  margin-bottom: 0; /* Elimina el margen inferior */
+  padding-top: 0; /* Elimina cualquier padding superior */
+  padding-bottom: 0; /* Elimina cualquier padding inferior */
+}
+
+/* Asegurarse de que el logo también se ajuste */
+.navbar-brand {
+  padding-left: 0; /* Elimina padding a la izquierda */
+  padding-right: 0; /* Elimina padding a la derecha */
+}
+
+/* Menú deslizable */
+#slideMenu {
+  padding-top: 0; /* Elimina cualquier padding superior en el slideMenu */
+}
+
+/*................. Estilo del carrusel ..........................*/
+/* Estilo del navbar (Menú Bar) */
+
+/* Eliminar cualquier margen, padding y borde del navbar */
+.navbar {
+  margin-bottom: 0; /* Elimina el margen inferior */
+  padding-top: 0; /* Elimina cualquier padding superior */
+  padding-bottom: 0; /* Elimina cualquier padding inferior */
+  border: none; /* Elimina cualquier borde del navbar */
+  box-shadow: none; /* Si hay alguna sombra, la eliminamos también */
+}
+
+/* Asegurarse de que el logo no tenga espacio */
+.navbar-brand {
+  padding-left: 0; /* Elimina padding a la izquierda */
+  padding-right: 0; /* Elimina padding a la derecha */
+}
+
+
+    /* Transición entre las imágenes del carrusel */
+  .carousel-item {
+    transition: transform 0.5s ease;
+  }
+
+  /* Imagen del carrusel */
+  .carousel-item img {
+    object-fit: cover;  /* Ajusta la imagen sin distorsionarla */
+    width: 100%;  /* Asegura que la imagen cubra todo el ancho disponible */
+    height: auto;  /* La altura se ajustará proporcionalmente */
+    max-height: 500px;  /* Limita la altura máxima de la imagen */
+  }
+
+  /* Media Query para pantallas pequeñas (móviles) */
+  @media (max-width: 576px) {
     .carousel-item img {
-      height: 300px;     /* Altura para dispositivos móviles */
+      max-height: 300px;  /* Imagen más pequeña en móviles */
     }
   }
-  
-  /* Altura para pantallas medianas y grandes */
+
+  /* Media Query para pantallas medianas (tabletas) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    .carousel-item img {
+      max-height: 400px;  /* Imagen ligeramente más grande en tabletas */
+    }
+  }
+
+  /* Media Query para pantallas grandes (escritorio) */
   @media (min-width: 769px) {
     .carousel-item img {
-      height: 500px;     /* Altura para dispositivos más grandes */
+      max-height: 600px;  /* Imagen más grande en pantallas grandes */
     }
   }
-  
+
+/* ------------------------------ FOOTER ------------------------------ */
+
+/* Estilo general del footer */
+.footer-container {
+  background: linear-gradient(135deg, #1a1a1a, #444);
+  color: #f1f1f1;
+  padding: 40px 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.footer-logo img {
+  max-width: 100px;
+  margin-bottom: 20px;
+  animation: logoFadeInUp 1.5s ease-in-out;
+}
+
+.footer-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #00d4ff;
+  text-transform: uppercase;
+  border-bottom: 2px solid #00d4ff;
+  padding-bottom: 5px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 16px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.footer-item:hover {
+  color: #00d4ff;
+  transform: translateX(5px);
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.footer-item:hover .footer-icon {
+  transform: scale(1.2);
+}
+
+/* Estilos de enlaces sociales */
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+  animation: fadeInUp 1.3s ease-in-out;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+/* Estilo de los enlaces del footer */
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+  animation: fadeInUp 1.4s ease-in-out;
+}
+
+.footer-links a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-links a:hover {
+  color: #00d4ff;
+  transform: translateY(-3px);
+}
+
+/* Estilo del pie de página */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #666;
+  font-size: 14px;
+  color: #bfbfbf;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* ------------------------------ ANIMACIONES ------------------------------ */
+
+/* Animación de desvanecimiento hacia arriba */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animación de deslizamiento hacia arriba */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de desvanecimiento del logo */
+@keyframes logoFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------ DISEÑO RESPONSIVO ------------------------------ */
+
+/* Para pantallas más pequeñas (máximo 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-links {
+    gap: 10px;
+  }
+}
+
+/* Para pantallas muy pequeñas (máximo 480px) */
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 20px 10px;
+  }
+
+  .footer-title {
+    font-size: 18px;
+  }
+
+  .footer-item {
+    font-size: 14px;
+  }
+}
