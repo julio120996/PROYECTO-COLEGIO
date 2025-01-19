@@ -303,34 +303,63 @@
     transition: transform 0.5s ease;
   }
 
-  /* Imagen del carrusel */
+
+/* Estilo general del carrusel */
+
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 600px; /* Máxima altura para pantallas grandes */
+}
+
+/* Imagenes del carrusel */
+.carousel-item img {
+  width: 100%;
+  height: auto; /* Ajusta automáticamente la altura según el ancho */
+  object-fit: contain; /* Muestra toda la imagen sin recortar */
+}
+
+/* Estilo general del carrusel */
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 600px; /* Máxima altura para pantallas grandes */
+}
+
+/* Imagenes del carrusel */
+.carousel-item img {
+  width: 100%;
+  height: auto; /* Ajusta automáticamente la altura según el ancho */
+  object-fit: contain; /* Muestra toda la imagen sin recortar */
+}
+
+/* Reducción dinámica en pantallas pequeñas */
+@media (max-width: 576px) {
+  .carousel-inner {
+    max-height: 300px; /* Altura más pequeña en móviles */
+  }
   .carousel-item img {
-    object-fit: cover;  /* Ajusta la imagen sin distorsionarla */
-    width: 100%;  /* Asegura que la imagen cubra todo el ancho disponible */
-    height: auto;  /* La altura se ajustará proporcionalmente */
-    max-height: 500px;  /* Limita la altura máxima de la imagen */
+    object-fit: contain; /* Asegura que la imagen no se recorte */
   }
+}
 
-  /* Media Query para pantallas pequeñas (móviles) */
-  @media (max-width: 576px) {
-    .carousel-item img {
-      max-height: 300px;  /* Imagen más pequeña en móviles */
-    }
+/* Ajustes en pantallas medianas */
+@media (min-width: 577px) and (max-width: 768px) {
+  .carousel-inner {
+    max-height: 400px; /* Ajusta la altura en tabletas */
   }
+}
 
-  /* Media Query para pantallas medianas (tabletas) */
-  @media (min-width: 577px) and (max-width: 768px) {
-    .carousel-item img {
-      max-height: 400px;  /* Imagen ligeramente más grande en tabletas */
-    }
+/* Pantallas grandes - Aumenta la altura del carrusel */
+@media (min-width: 769px) {
+  .carousel-inner {
+    max-height: 650px; /* Aumenta la altura en pantallas grandes */
   }
+}
 
-  /* Media Query para pantallas grandes (escritorio) */
-  @media (min-width: 769px) {
-    .carousel-item img {
-      max-height: 600px;  /* Imagen más grande en pantallas grandes */
-    }
-  }
 
 /* ------------------------------ FOOTER ------------------------------ */
 
