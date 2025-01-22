@@ -1,187 +1,137 @@
-/* ------------------------------ MENÚ DESPLEGABLE ------------------------------ */
-
-
-/* Mostrar menú desplegable al pasar el mouse */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-  position: absolute; /* Asegura que no desplace otros elementos */
-  top: 100%; /* Ubica el menú justo debajo del enlace */
-  left: 0;
-  z-index: 1000;
+/* ------------------------------------------------------------------------------  
+   AJUSTES GLOBALES
+------------------------------------------------------------------------------ */
+body {
+  padding-top: 50px; /* Ajusta este valor dependiendo de la altura de tu navbar */
+  word-wrap: break-word; /* Por si hay palabras largas */
+  
 }
 
-/* Ajustar la apariencia de los elementos */
-.nav-item .dropdown-menu {
-  margin-top: 0; /* Elimina el margen por defecto */
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0; /* Inicialmente oculto */
+/* ------------------------------------------------------------------------------  
+   MEJORAS EN LOS ENLACES DE LA BARRA DE NAVEGACIÓN
+------------------------------------------------------------------------------ */
+.navbar-nav .nav-link {
+  position: relative;
+  color: #333;
+  font-size: 1rem;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap; /* Asegura que el texto se mantenga en una sola línea */
+  overflow: hidden; /* Evita desbordamientos */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
 }
 
-.nav-item.dropdown:hover .dropdown-menu {
-  opacity: 1; /* Mostrar cuando el mouse está encima */
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Cambia el color del texto */
+  transform: scale(1.05); /* Amplía ligeramente el texto */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
 }
 
-/* Estilo de la imagen en el menú */
-.img-menu {
-  height: 90px;
-  padding-left: 50px;
-}
-
-/* Estilo del logo en el menú */
-.a-logo {
-  margin-right: -10px;
-  padding-left: 40px;
-}
-
-/* Estilo del logo en el slideMenu */
-#slideMenu .menu-header img {
-  max-height: 100px; /* Ajusta el tamaño de la imagen */
-  width: auto; /* Mantiene la proporción */
-}
-
-
-/* Animación de rebote */
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  30% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  70% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Aplicar la animación al logo */
+/* ------------------------------------------------------------------------------  
+   LOGOTIPO Y TÍTULO
+------------------------------------------------------------------------------ */
 #logo {
-  animation: bounceIn 1.5s ease-out forwards;
+  animation: bounceIn 1.5s ease-out forwards; /* Animación inicial */
 }
 
-/* Animación de latido al pasar el mouse */
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1);
-  }
-  75% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Estilo para el logo al pasar el mouse */
 #logo:hover {
-  animation: heartbeat 1.5s ease-in-out infinite;
+  animation: heartbeat 1.5s ease-in-out infinite; /* Animación al pasar el mouse */
+
 }
 
-/* ------------------------------ ESTILOS DEL BOTÓN ------------------------------ */
 
-/* Estilo al pasar el mouse sobre el botón */
-.btn-menu:hover {
-  background-color: #ff0000;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 0;
 }
 
-/* ------------------------------ MENÚ RESPONSIVO ------------------------------ */
-
-/* Ajustes en pantallas pequeñas (menos de 992px) */
-@media (max-width: 992px) {
-  .navbar-brand {
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .navbar-collapse.collapsing ~ .navbar-brand #logo,
-  .navbar-collapse.show ~ .navbar-brand #logo {
-    max-height: 90px;
-    transform: scale(1.2);
-  }
-
-  .navbar-toggler {
-    display: block;
-    margin: 0 auto;
-  }
-
-  .collapse.navbar-collapse {
-    text-align: center;
-  }
-
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-item {
-    text-align: center;
-  }
+.titulo-logo {
+  font-size: 1.3rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-family: "Schibsted Grotesk", serif;
+  font-weight: 700;
+  color: #059cd3;
+  white-space: nowrap;
+  margin: 0;
 }
 
-/* ------------------------------ ESTILO DEL CIERRE DEL MENÚ ------------------------------ */
-/* Estilo para el icono de cierre */
-#closeMenu {
-  background: none; /* Elimina cualquier fondo */
-  border: none; /* Elimina el borde */
-  font-size: 2.5rem;
-  color: #ff0000;
-  cursor: pointer;
+.img-menu {
+  max-height: 80px;
+  width: auto;
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------------------  
+   BARRA DE NAVEGACIÓN
+------------------------------------------------------------------------------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: top 0.3s;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar-toggler {
+  display: block;
+  font-size: 1.8rem;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #333;
+  z-index: 1040;
   position: absolute;
-  top: 15px;
   right: 15px;
-  padding: 10px;
-  z-index: 2000;
-  transition: color 0.3s ease, transform 0.3s ease;
-  outline: none; /* Elimina el borde de enfoque */
 }
 
-/* Estilo al pasar el mouse */
-#closeMenu:hover {
-  color: #d90000;
-  transform: scale(1.1);
+.navbar-toggler:focus {
+  outline: none;
 }
 
-/* Estilo al hacer clic (eliminamos cualquier borde o fondo) */
-#closeMenu:active {
-  transform: scale(1);
-  color: #ff0000;
-  outline: none; /* Asegura que no aparezca un borde al hacer clic */
-  background: none; /* Elimina cualquier fondo al hacer clic */
+.navbar-collapse {
+  width: 100%;
 }
 
-/* Eliminar borde azul cuando el elemento recibe foco */
-#closeMenu:focus {
-  outline: none; /* Elimina el borde azul del foco */
-  background: none; /* Elimina cualquier fondo de enfoque */
+/* ------------------------------ ÍCONOS HOVER DE REDES SOCIALES ------------------------------ */
+.navbar-social-icons .fa-whatsapp:hover {
+  transform: scale(1.2);
+  color: #15e649;
 }
 
+.navbar-social-icons .fa-facebook:hover {
+  transform: scale(1.2);
+  color: #007bff;
+}
 
+.navbar-social-icons .fa-instagram:hover {
+  transform: scale(1.2);
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-/* ------------------------------ MENÚ DESLIZABLE ------------------------------ */
+.navbar-social-icons .fa-tiktok:hover {
+  transform: scale(1.2);
+  color: #010101;
+}
 
-/* Estilo general del menú deslizable */
+/* ------------------------------------------------------------------------------  
+   MENÚ DESLIZABLE
+------------------------------------------------------------------------------ */
 #slideMenu {
   position: fixed;
   top: 0;
-  right: -100%; /* Oculto inicialmente */
+  right: -100%;
   width: 100%;
   height: 100%;
   background-color: #f8f9fa;
@@ -194,14 +144,16 @@
   opacity: 0;
 }
 
-/* Menú activo con transición suave */
 #slideMenu.active {
   right: 0;
   opacity: 1;
-  transition: right 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease-out;
 }
 
-/* Estilo de la lista de menús */
+#slideMenu .menu-header img {
+  max-height: 100px;
+  width: auto;
+}
+
 .menu-list {
   list-style: none;
   padding: 0;
@@ -210,7 +162,6 @@
   text-align: left;
 }
 
-/* Estilo de cada ítem del menú */
 .menu-item {
   position: relative;
 }
@@ -232,7 +183,6 @@
   color: #007bff;
 }
 
-/* Submenú oculto inicialmente */
 .submenu {
   list-style: none;
   padding: 0;
@@ -241,7 +191,6 @@
   display: none;
 }
 
-/* Mostrar submenú al pasar el mouse */
 .menu-item:hover .submenu,
 .menu-item:focus-within .submenu {
   display: block;
@@ -260,42 +209,186 @@
   color: #007bff;
 }
 
-/* Estilo del navbar (Menú Bar) */
-/* Reducir aún más los márgenes y paddings del navbar */
-.navbar {
-  margin-bottom: 0; /* Elimina el margen inferior */
-  padding-top: 0; /* Elimina cualquier padding superior */
-  padding-bottom: 0; /* Elimina cualquier padding inferior */
+/* ------------------------------------------------------------------------------  
+   BOTÓN DE CIERRE DEL MENÚ
+------------------------------------------------------------------------------ */
+#closeMenu {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #ff0000;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 10px;
+  z-index: 2000;
+  transition: color 0.3s ease, transform 0.3s ease;
+  outline: none;
 }
 
-/* Asegurarse de que el logo también se ajuste */
-.navbar-brand {
-  padding-left: 0; /* Elimina padding a la izquierda */
-  padding-right: 0; /* Elimina padding a la derecha */
+#closeMenu:hover {
+  color: #d90000;
+  transform: scale(1.1);
 }
 
-/* Menú deslizable */
-#slideMenu {
-  padding-top: 0; /* Elimina cualquier padding superior en el slideMenu */
+#closeMenu:active,
+#closeMenu:focus {
+  transform: scale(1);
+  color: #ff0000;
+  background: none;
+  outline: none;
+}
+
+/* ------------------------------------------------------------------------------  
+   MEDIA QUERIES DEL MENÚ RESPONSIVO
+------------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------------  
+   MEDIA QUERIES DEL MENÚ RESPONSIVO
+------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------  
+   MEDIA QUERIES DEL MENÚ RESPONSIVO
+------------------------------------------------------------------------------ */
+
+@media (max-width: 992px) {
+  .navbar {
+    height: 60px; /* Altura reducida */
+    padding: 0 10px; /* Menos padding vertical */
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre logo y título */
+  }
+
+  .titulo-logo {
+    font-size: 1.1rem;
+    line-height: 1; /* Ajusta la altura del texto para centrado perfecto */
+  }
+
+  .img-menu {
+    max-height: 50px; /* Tamaño reducido del logo */
+  }
+
+  .navbar-toggler {
+    font-size: 1.5rem; /* Botón más pequeño */
+    padding: 5px; /* Centra el ícono de hamburguesa */
+    display: flex;
+    align-items: center; /* Asegura centrado */
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center; /* Centra los enlaces */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem; /* Tamaño reducido */
+    padding: 6px 10px; /* Ajuste de espacio interno */
+  }
+
+  .navbar-social-icons {
+    display: flex;
+    align-items: center; /* Centra íconos sociales */
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 50px; /* Más delgada */
+    padding: 0 8px; /* Menos espacio horizontal */
+  }
+
+  .navbar-brand {
+    gap: 5px; /* Menor espacio entre logo y título */
+  }
+
+  .titulo-logo {
+    font-size: 1rem; /* Texto reducido */
+  }
+
+  .img-menu {
+    max-height: 40px; /* Logo más pequeño */
+  }
+
+  .navbar-toggler {
+    font-size: 1.3rem;
+    padding: 4px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+
+  .navbar-social-icons {
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 45px; /* Muy delgada */
+    padding: 0 5px;
+  }
+
+  .navbar-brand {
+    gap: 3px; /* Muy poco espacio entre logo y título */
+  }
+
+  .titulo-logo {
+    font-size: 0.9rem;
+  }
+
+  .img-menu {
+    max-height: 30px;
+  }
+
+  .navbar-toggler {
+    font-size: 1rem;
+    padding: 3px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+
+  .navbar-social-icons {
+    gap: 3px;
+  }
+}
+
+
+/* ------------------------------------------------------------------------------  
+   ANIMACIONES
+------------------------------------------------------------------------------ */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /*................. Estilo del carrusel ..........................*/
-/* Estilo del navbar (Menú Bar) */
-
-/* Eliminar cualquier margen, padding y borde del navbar */
-.navbar {
-  margin-bottom: 0; /* Elimina el margen inferior */
-  padding-top: 0; /* Elimina cualquier padding superior */
-  padding-bottom: 0; /* Elimina cualquier padding inferior */
-  border: none; /* Elimina cualquier borde del navbar */
-  box-shadow: none; /* Si hay alguna sombra, la eliminamos también */
-}
-
-/* Asegurarse de que el logo no tenga espacio */
-.navbar-brand {
-  padding-left: 0; /* Elimina padding a la izquierda */
-  padding-right: 0; /* Elimina padding a la derecha */
-}
 
 
     /* Transición entre las imágenes del carrusel */
@@ -358,6 +451,75 @@
   .carousel-inner {
     max-height: 650px; /* Aumenta la altura en pantallas grandes */
   }
+}
+
+/* Línea personalizada con sombra solo en la parte inferior */
+.custom-shadow-line {
+  width: 100%;
+  height: 15px; /* Ajusta la altura total */
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.2),
+    transparent
+  ); /* Gradiente horizontal */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Sombra solo hacia abajo */
+  border-radius: 50%; /* Bordes suaves */
+  margin: 30px 0; /* Espaciado vertical */
+}
+
+
+
+/* Contenedor principal */
+.container-2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilo del título */
+.section-title h2 {
+  color: #800020; /* Rojo vino */
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Contenedor de los círculos */
+.circle-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que los círculos se ajusten en pantallas pequeñas */
+  gap: 20px; /* Espacio entre los círculos */
+  margin-top: 20px;
+}
+
+/* Cada círculo */
+.circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+/* Estilo de los círculos */
+.circle-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Hace que sea redondo */
+  object-fit: cover; /* Ajusta la imagen dentro del círculo */
+  border: 2px solid #800020; /* Borde rojo vino */
+}
+
+/* Texto debajo del círculo */
+.circle-item p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
 }
 
 

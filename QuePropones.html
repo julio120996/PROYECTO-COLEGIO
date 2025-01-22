@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Animaciones con Hover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            gap: 30px;
+            flex-direction: row;
+        }
+
+        /* Animación para el texto que se desvanece */
+        .fade-in {
+            font-size: 2rem;
+            color: #333;
+            animation: fadeIn 3s ease-out;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animación para el texto que se desliza */
+        .slide-in {
+            font-size: 1.8rem;
+            color: #555;
+            animation: slideIn 3s ease-out;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Animación para un icono que rebota */
+        .bounce-icon {
+            font-size: 4rem;
+            color: #ff5733;
+            animation: bounce 2s infinite;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Animación para un icono giratorio */
+        .rotate-icon {
+            font-size: 4rem;
+            color: #3498db;
+            animation: rotate 3s infinite linear;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Animación para texto con color cambiante */
+        .color-change {
+            font-size: 2rem;
+            color: #2c3e50;
+            animation: colorChange 3s infinite alternate;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #2c3e50;
+            }
+            50% {
+                color: #e74c3c;
+            }
+            100% {
+                color: #8e44ad;
+            }
+        }
+
+        /* Efectos hover */
+        .fade-in:hover {
+            transform: scale(1.1);
+            color: #2c3e50;
+        }
+
+        .slide-in:hover {
+            transform: scale(1.1);
+            color: #3498db;
+        }
+
+        .bounce-icon:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        .rotate-icon:hover {
+            transform: scale(1.1);
+            color: #e74c3c;
+        }
+
+        .color-change:hover {
+            transform: scale(1.1);
+            color: #f39c12;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="fade-in">
+        Texto con desvanecimiento
+    </div>
+
+    <div class="slide-in">
+        Texto que se desliza
+    </div>
+
+    <div class="bounce-icon">
+        💡 <!-- Icono de bombilla que rebota -->
+    </div>
+
+    <div class="rotate-icon">
+        🔄 <!-- Icono que rota -->
+    </div>
+
+    <div class="color-change">
+        Texto con cambio de color
+    </div>
+
+</body>
+</html>
