@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difuminado Personalizado</title>
+    <style>
+  
+
+      .horizontal-line {
+        width: 100%; /* El difuminado se extenderá al 100% del ancho */
+        max-width: 100%; /* Máximo ancho del 100% del viewport */
+        height: 0; /* Sin altura visible, solo sombra */
+        position: relative; /* Para posicionar el pseudo-elemento */
+      }
+
+      .horizontal-line::after {
+        content: "";
+        position: absolute;
+        top: 0; /* Coloca el difuminado debajo */
+        left: 0;
+        width: 110vw; /* Ancho relativo con 'vw' para que sea más amplio en pantallas grandes */
+        height: 20px; /* Altura total del difuminado */
+        background: radial-gradient(
+          ellipse at top center,
+          rgba(64, 224, 208, 0.3), /* Color turquesa al inicio */
+          rgba(64, 224, 208, 0) 50% /* Transición a transparente */
+        );
+        transform: translateX(-5%); /* Ajusta el desplazamiento para centrar mejor el difuminado */
+        z-index: -1; /* Asegura que quede detrás de la línea */
+      }
+
+      /* Media query para pantallas más pequeñas */
+      @media (max-width: 768px) {
+        .horizontal-line::after {
+          width: 100vw; /* Reduce el ancho */
+          height: 15px; /* Reduce la altura */
+        }
+      }
+
+      /* Media query para pantallas muy pequeñas */
+      @media (max-width: 480px) {
+        .horizontal-line::after {
+          width: 90vw; /* Reducción aún más del ancho */
+          height: 10px; /* Reducción de la altura */
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="horizontal-line"></div>
+</body>
+</html>
+
