@@ -99,18 +99,23 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
     padding-right: 0;
 }
   
-  .navbar-toggler {
-    display: block;
-    font-size: 1.8rem;
-    padding: 8px;
-    border: none;
-    background: transparent;
-    color: #333;
-    z-index: 1040;
-    position: absolute;
-    right: 15px;
-  }
-  
+.navbar-toggler:hover {
+  transform: scale(1.2); /* Agranda ligeramente el botón */
+  color: #007bff00; /* Cambia el color al pasar el mouse */
+}
+
+.navbar-toggler {
+  display: block;
+  font-size: 1.8rem;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #33333300;
+  z-index: 1040;
+  position: absolute;
+  right: 15px;
+  transition: transform 0.3s ease, color 0.3s ease; /* Transición suave */
+}
   .navbar-toggler:focus {
     outline: none;
   }
@@ -118,6 +123,8 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
   .navbar-collapse {
     width: 100%;
   }
+
+ 
   
   /* ------------------------------ ÍCONOS HOVER DE REDES SOCIALES ------------------------------ */
   .navbar-social-icons .fa-whatsapp:hover {
@@ -151,7 +158,7 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
     right: -100%;
     width: 100%;
     height: 100%;
-    background-color: rgba(224, 247, 250, 0.95);
+    background-color: rgb(224, 247, 250);
     transition: right 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease-out;
     z-index: 1050;
     display: flex;
@@ -193,39 +200,19 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
     color: #333;
     display: block;
     padding: 10px;
-    transition: color 0.3s;
+    position: relative; /* Necesario para el subrayado animado */
+    transition: color 0.3s ease, transform 0.3s ease;
   }
+  
   
   .menu-list a:hover {
     color: #00838F;
-    background-color: rgba(0, 188, 212, 0.1);
+    transform: scale(1.05); /* Efecto de agrandamiento sutil */
   }
   
-  .submenu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-left: 20px;
-    display: none;
-  }
+ 
   
-  .menu-item:hover .submenu,
-  .menu-item:focus-within .submenu {
-    display: block;
-  }
   
-  .submenu li {
-    margin: 5px 0;
-  }
-  
-  .submenu a {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .submenu a:hover {
-    color: #007bff;
-  }
   
   /* ------------------------------------------------------------------------------  
      BOTÓN DE CIERRE DEL MENÚ
@@ -258,6 +245,14 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
     outline: none;
   }
   
+
+
+.menu-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Aumenté la separación */
+}
+
   /* ------------------------------------------------------------------------------  
      MEDIA QUERIES DEL MENÚ RESPONSIVO
   ------------------------------------------------------------------------------ */
@@ -302,10 +297,10 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
       padding: 6px 10px; /* Ajuste de espacio interno */
     }
   
-    .navbar-social-icons {
+    .menu-social-icons {
       display: flex;
       align-items: center; /* Centra íconos sociales */
-      gap: 5px;
+      gap: 25px; /* Separación más pequeña en pantallas medianas */
     }
   }
   
@@ -337,8 +332,31 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
       padding: 5px 8px;
     }
   
-    .navbar-social-icons {
-      gap: 4px;
+    .menu-social-icons {
+      display: flex;
+      align-items: center; /* Centra íconos sociales */
+      gap: 25px; /* Separación más pequeña en pantallas medianas */
+    } 
+    .menu-social-icons .fa-whatsapp:hover {
+      transform: scale(1.2);
+      color: #15e649;
+    }
+    
+    .menu-social-icons .fa-facebook:hover {
+      transform: scale(1.2);
+      color: #007bff;
+    }
+    
+    .menu-social-icons .fa-instagram:hover {
+      transform: scale(1.2);
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .menu-social-icons .fa-tiktok:hover {
+      transform: scale(1.2);
+      color: #010101;
     }
   }
   
@@ -370,9 +388,33 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
       padding: 4px 6px;
     }
   
-    .navbar-social-icons {
-      gap: 3px;
+    .menu-social-icons {
+      display: flex;
+      align-items: center; /* Centra íconos sociales */
+      gap: 25px; /* Separación más pequeña en pantallas medianas */
+    } 
+    .menu-social-icons .fa-whatsapp:hover {
+      transform: scale(1.2);
+      color: #15e649;
     }
+    
+    .menu-social-icons .fa-facebook:hover {
+      transform: scale(1.2);
+      color: #007bff;
+    }
+    
+    .menu-social-icons .fa-instagram:hover {
+      transform: scale(1.2);
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .menu-social-icons .fa-tiktok:hover {
+      transform: scale(1.2);
+      color: #010101;
+    }
+    
   }
   
   
@@ -400,22 +442,22 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
   }
   
   /*................. Estilo del carrusel ..........................*/
-  
+  #carouselExample {
+    width: 100vw; /* Asegura que ocupe todo el ancho de la ventana */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina relleno */
+  }
   
       /* Transición entre las imágenes del carrusel */
     .carousel-item {
       transition: transform 0.5s ease;
     }
   
-  
-  /* Estilo general del carrusel */
-  
-  
   .carousel-inner {
     position: relative;
     width: 100%;
     height: auto;
-    max-height: 600px; /* Máxima altura para pantallas grandes */
+    max-height: 684px !important; /* Máxima altura para pantallas grandes */
   }
   
   /* Imagenes del carrusel */
@@ -439,7 +481,26 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
     height: auto; /* Ajusta automáticamente la altura según el ancho */
     object-fit: contain; /* Muestra toda la imagen sin recortar */
   }
+
+/* Estilo para los botones del carrusel */
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+  border: 2px solid  rgba(0, 0, 0, 0);; /* Borde blanco */
+  border-radius: 50%; /* Borde redondeado */
   
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Animación suave */
+}
+
+
+
+
+
+
+
+
   /* Reducción dinámica en pantallas pequeñas */
   @media (max-width: 576px) {
     .carousel-inner {
@@ -582,7 +643,10 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
       opacity: 0;
       transform: translateY(50px);
     }
-  }/* ................ Linea de Sepacion de Bloques........................ */
+  }
+
+
+
 /* ................ Linea de Sepacion de Bloques........................ */
 .horizontal-line {
   width: 100%;
@@ -609,47 +673,6 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
   z-index: -1;
 /*  animation: gradientAnimation 25s ease-in-out infinite alternate; /* Animación más suave y más lenta */
 }
-
-/* Animación más suave con transiciones graduales 
-@keyframes gradientAnimation {
-  0% {
-    background: radial-gradient(
-      ellipse at top center,
-      rgba(20, 227, 206, 0.8),
-      rgba(255, 255, 255, 0) 50%
-    );
-  }
-  25% {
-    background: radial-gradient(
-      ellipse at top center,
-      rgba(21, 212, 190, 0.75), 
-      rgba(255, 255, 255, 0) 50%
-    );
-  }
-  50% {
-    background: radial-gradient(
-      ellipse at top center,
-      rgba(60, 213, 198, 0.6), 
-      rgba(255, 255, 255, 0) 50%
-    );
-  }
-  75% {
-    background: radial-gradient(
-      ellipse at top center,
-      rgba(27, 242, 217, 0.75),
-      rgba(255, 255, 255, 0) 50%
-    );
-  }
-  100% {
-    background: radial-gradient(
-      ellipse at top center,
-      rgba(20, 227, 206, 0.8),
-      rgba(255, 255, 255, 0) 50%
-    );
-  }
-}*/
-
-
 /* Media query para pantallas más pequeñas */
 @media (max-width: 768px) {
   .horizontal-line::after {
@@ -667,6 +690,7 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
 }
 
 
+
   /*.............. Estilo 3 bocle de circulos....................  */
  
   /* Estilo del título */
@@ -678,6 +702,8 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
   font-weight: bold;
   color: #006064;
   text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.1);
+  padding-top: 30px;
+
 }
 
   .container-2 {
@@ -685,7 +711,16 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    transform: translateY(50px); /* Desplazado hacia abajo */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Animación de entrada */
   }
+
+/* Estado visible: bloque completamente en vista */
+.container-2.visible {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a su posición original */
+}
+
 
   /* Contenedor de los círculos */
 .circle-container {
@@ -919,6 +954,19 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
   }
 }
 
+/* Estado inicial (antes de la animación) */
+.hidden-animation {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9); /* Aparece más abajo y más pequeño */
+  transition: opacity 0.8s ease, transform 0.8s ease; /* Animación suave */
+}
+
+/* Estado visible (durante la animación) */
+.hidden-animation.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1); /* Se mueve a su posición original y toma el tamaño normal */
+}
+
 /*------------------ bloque 3 del video ----------------------------------*/
 
 
@@ -958,7 +1006,14 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
 
 
  /* ------------------- NOVEDADEDES DEL COLEGIO---------------------- */
+ .contenedor-tarjeta-principal{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+ }
 
+ 
 .contenedor-tarjeta-3 {
   position: relative;
   width: 100%;
@@ -1113,15 +1168,22 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
 
 /* Media query para pantallas pequeñas (como móviles) */
 @media (max-width: 768px) {
-  /* Desaparecer la imagen de la niña en pantallas pequeñas */
+  .contenedor-tarjeta-principal {
+    height: auto; /* Elimina la altura fija en pantallas pequeñas */
+  }
+  
+  /* Otras reglas específicas para pantallas pequeñas */
   .imagen-lateral-3 {
     display: none;
   }
-  
-  /* Asegurarte de que la tarjeta sigue centrada */
+
   .contenedor-tarjeta-3 {
-    transform: translateX(0); /* Mueve la tarjeta de nuevo al centro si se movió anteriormente */
+    transform: translateX(0); /* Centra la tarjeta si era necesario */
   }
+
+  
+  
+  
 }
 
 
@@ -1158,8 +1220,9 @@ section.profesor-card {
 
 .profesor-card__front img {
   border-radius: 50%; /* Imagen circular */
-  width: 120px; /* Imagen más pequeña */
-  height: 120px;
+  width: 120px; /* Ancho fijo */
+  height: 120px; /* Altura igual al ancho para mantener la proporción */
+  object-fit: cover; /* Ajusta la imagen para llenar el contenedor sin deformarla */
   margin-bottom: 10px;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */

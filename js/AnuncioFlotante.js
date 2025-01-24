@@ -1,4 +1,5 @@
  // Cerrar el modal con animación
+ 
  const closeModal = document.getElementById('closeModal');
  const modal = document.getElementById('modal');
  const card = document.querySelector('.modal .card');
@@ -15,3 +16,5 @@
      modal.style.display = 'none'; // Ocultamos el modal después de la animación
    }, 500); // Esperamos el tiempo de duración de la animación
  });
+
+
