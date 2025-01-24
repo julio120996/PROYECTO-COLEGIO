@@ -1,7 +1,9 @@
 /* ------------------------------------------------------------------------------  
    AJUSTES GLOBALES
 ------------------------------------------------------------------------------ */
-
+body {
+background: linear-gradient(120deg, #a8e0e6, #66c2c7, #00b8d4); 
+}
 /* Modifica el fondo del body */
 /*
 body {
@@ -666,61 +668,593 @@ animation: gradientBG 20s ease-in-out infinite, floatBG 15s ease-in-out infinite
 
 
   /*.............. Estilo 3 bocle de circulos....................  */
+ 
+  /* Estilo del título */
+
+.section-title h2 {
+  font-size: 1.4rem; /* Aumento el tamaño del texto */
+  margin-bottom: 5vw;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #006064;
+  text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.1);
+}
+
   .container-2 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
   }
-  
-  /* Estilo del título */
-  .section-title h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #006064;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+
   /* Contenedor de los círculos */
-  .circle-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite que los círculos se ajusten en pantallas pequeñas */
-    gap: 20px; /* Espacio entre los círculos */
-    margin-top: 20px;
-  }
-  
-  /* Cada círculo */
-  .circle-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 150px;
-  }
-  
- /* Estilo de los círculos */
-.circle-item img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%; /* Hace que sea redondo */
-  object-fit: cover; /* Ajusta la imagen dentro del círculo */
-  border: 2px solid #00bbd441; /* Border exterior */
-  box-shadow: inset 0 0 15px rgba(0, 187, 212, 0.6), 0 0 20px rgba(0, 187, 212, 0.4); /* Borde interno y sombra exterior */
+.circle-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-  
-  /* Texto debajo del círculo */
+  /* Cada círculo */
+ 
+.circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 210px;
+  position: relative;
+}
+
+  /* Círculo padre */
+  .circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    transition: transform 0.5s ease, box-shadow 0.3s ease; /* Transición más suave */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para mejor efecto */
+  }
+
+  .circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* Círculo hijo */
+  .circle .inner-circle {
+    width: 180px; /* Tamaño del círculo hijo */
+    height: 180px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0); /* Transparente hacia adentro */
+    position: absolute;
+    transition: all 0.5s ease; /* Transición más suave y rápida */
+  }
+
+  /* Colores específicos para cada círculo con su respectivo hover */
+  .circle.green .inner-circle {
+    box-shadow: 0 0 0 30px rgba(70, 224, 103, 0.2); /* Sombra verde */
+  }
+
+  .circle.green:hover .inner-circle {
+    background: linear-gradient(to bottom, rgba(43, 233, 84, 0.7), rgba(43, 233, 84, 0.2)); /* Gradiente verde */
+    box-shadow: 0 0 0 30px rgba(70, 224, 103, 0.3); /* Más opacidad verde */
+    transform: scale(1.05); /* Efecto de ampliación sutil */
+  }
+
+  .circle.red .inner-circle {
+    box-shadow: 0 0 0 30px rgba(255, 0, 0, 0.2); /* Sombra roja */
+  }
+
+  .circle.red:hover .inner-circle {
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); /* Gradiente rojo */
+    box-shadow: 0 0 0 30px rgba(255, 0, 0, 0.3); /* Más opacidad roja */
+    transform: scale(1.05); /* Efecto de ampliación sutil */
+  }
+
+  .circle.blue .inner-circle {
+    box-shadow: 0 0 0 30px rgba(0, 0, 255, 0.2); /* Sombra azul */
+  }
+
+  .circle.blue:hover .inner-circle {
+    background: linear-gradient(to bottom, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0.2)); /* Gradiente azul */
+    box-shadow: 0 0 0 30px rgba(0, 0, 255, 0.3); /* Más opacidad azul */
+    transform: scale(1.05); /* Efecto de ampliación sutil */
+  }
+
+  .circle.yellow .inner-circle {
+    box-shadow: 0 0 0 30px rgba(220, 220, 11, 0.2); /* Sombra amarilla */
+  }
+
+  .circle.yellow:hover .inner-circle {
+    background: linear-gradient(to bottom, rgba(255, 255, 0, 0.849), rgba(255, 255, 0, 0.2)); /* Gradiente amarillo */
+    box-shadow: 0 0 0 30px rgba(255, 255, 0, 0.3); /* Más opacidad amarilla */
+    transform: scale(1.05); /* Efecto de ampliación sutil */
+  }
+
+  .circle.purple .inner-circle {
+    box-shadow: 0 0 0 30px rgba(128, 0, 128, 0.2); /* Sombra morada */
+  }
+
+  .circle.purple:hover .inner-circle {
+    background: linear-gradient(to bottom, rgba(128, 0, 128, 0.7), rgba(128, 0, 128, 0.2)); /* Gradiente morado */
+    box-shadow: 0 0 0 30px rgba(128, 0, 128, 0.3); /* Más opacidad morada */
+    transform: scale(1.05); /* Efecto de ampliación sutil */
+  }
+
+  /* Mensaje dentro del círculo */
+  .circle-item .circle .message {
+    position: absolute;
+    top: 50%;  /* Centrado verticalmente */
+    left: 50%;  /* Centrado horizontalmente */
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem; /* Aumentamos el tamaño de la fuente */
+    color: #fff; /* Color blanco */
+    font-family: 'Poppins', sans-serif; /* Fuente bonita */
+    font-weight: 600; /* Hacemos la fuente un poco más gruesa */
+    visibility: hidden;  /* Oculto por defecto */
+    opacity: 0;  /* Opacidad inicial */
+    transition: opacity 1s ease, visibility 1s ease; /* Transición suave para el mensaje */
+    text-align: center;
+  }
+
+  /* Hover: Mostrar el mensaje dentro del círculo */
+  .circle:hover .message {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Estilo del párrafo debajo de cada círculo */
   .circle-item p {
+    font-size: 1.4rem; /* Aumento el tamaño del texto */
+    font-family: 'Poppins', sans-serif; /* Fuente bonita */
+    font-weight: 600; /* Hacemos la fuente un poco más gruesa */
     margin-top: 10px;
-    font-size: 0.9rem;
-    color: #333;
-    line-height: 1.4;
+    
+    text-align: center;
+    font-weight: 600; /* Hago el texto más grueso */
+  }
+
+ /* Colores de los párrafos según el color del círculo */
+.circle.green + p {
+  color: rgba(111, 191, 127, 1); /* Verde pastel */
+}
+
+.circle.red + p {
+  color: rgba(239, 83, 80, 1); /* Rojo coral */
+}
+
+.circle.blue + p {
+  color: rgba(100, 149, 237, 1); /* Azul cielo */
+}
+
+.circle.yellow + p {
+  color: rgba(255, 223, 77, 1); /* Amarillo suave */
+}
+
+.circle.purple + p {
+  color: rgba(186, 104, 200, 1); /* Morado lavanda */
+}
+
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 1.2rem; /* Reducir tamaño del título en pantallas más pequeñas */
+    margin-bottom: 8vw;
+  }
+
+  .circle-container {
+    gap: 15px; /* Reducir el espacio entre círculos */
+    flex-direction: column; /* Colocar los círculos en una columna */
+    align-items: center; /* Centrar los círculos */
+  }
+
+  .circle-item {
+    width: 180px; /* Reducir tamaño de los círculos */
+  }
+
+  .circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .circle img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circle .inner-circle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .circle-item p {
+    font-size: 1.2rem; /* Reducir tamaño de los párrafos */
+  }
+}
+
+/* Media Query para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  .section-title h2 {
+    font-size: 1rem; /* Aumentar la legibilidad en pantallas más pequeñas */
+    margin-bottom: 10vw;
+  }
+
+  .circle-container {
+    gap: 10px; /* Reducir aún más el espacio */
+    flex-direction: column; /* Colocar los círculos en una columna */
+    align-items: center; /* Centrar los círculos */
+  }
+
+  .circle-item {
+    width: 150px; /* Reducir aún más el tamaño de los círculos */
+  }
+
+  .circle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .circle img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circle .inner-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .circle-item p {
+    font-size: 1rem; /* Reducir aún más el tamaño del texto */
+  }
+}
+
+/*------------------ bloque 3 del video ----------------------------------*/
+
+
+/* Contenedor para el iframe */
+/* Contenedor para el iframe */
+.video-container {
+  position: relative;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding-top: 40%; /* Relación de aspecto 2.5:1 para pantallas grandes */
+  max-width: 900px; /* Limitar el tamaño máximo del contenedor */
+  margin: 1rem auto; /* Centrado horizontal y separación del título */
+  display: flex;
+  justify-content: center; /* Centrar el video */
+}
+
+/* Estilo para el iframe */
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: 100%; /* Ocupa toda la altura del contenedor */
+  border: none; /* Sin bordes */
+  border-radius: 6px; /* Bordes ligeramente redondeados */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .video-container {
+    padding-top: 56.25%; /* Relación de aspecto estándar 16:9 */
+  }
+
+  .video-container iframe {
+    border-radius: 4px; /* Bordes ligeramente más pequeños */
+  }
+}
+
+
+ /* ------------------- NOVEDADEDES DEL COLEGIO---------------------- */
+
+.contenedor-tarjeta-3 {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  transform: translateX(150px); /* Ajusta este valor según sea necesario */
+}
+
+/* Estilos de la tarjeta */
+.tarjeta-3 {
+  position: absolute;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.842);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Parte trasera de la tarjeta */
+.tarjeta-3-detras {
+  width: 95%;
+  height: 103%;
+  transform: rotate(-5deg);
+  z-index: 1;
+  left: -8px;
+  top: -5px;
+  background-color: #e0e0e04a;
+}
+
+/* Parte frontal de la tarjeta */
+.tarjeta-3-frente {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.tarjeta-3-frente h1 {
+  font-size: 1.8rem;
+  color: #4caf50;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.tarjeta-3-frente h1 i {
+  font-size: 1.5rem;
+}
+
+/* Sección de imágenes dentro de la tarjeta */
+.seccion-imagenes-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+/* Elementos individuales de imagen */
+.imagen-item-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #ffffff2b;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 10px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.imagen-item-3 img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 8px;
+}
+
+.imagen-item-3 h2 {
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4caf50;
+  text-align: center;
+  padding: 0 10px;
+  margin-top: 5px;
+}
+
+/* Efectos de hover para los elementos de imagen */
+.imagen-item-3:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-item-3:hover img {
+  transform: scale(1.1);
+}
+
+.imagen-item-3:hover h2 {
+  color: #ff9800;
+}
+
+/* Animación en la tarjeta principal */
+.tarjeta-3-frente {
+  animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Imagen con brillo solo en los costados */
+.imagen-lateral-3 {
+  position: absolute;
+  top: 62%;
+  left: -128%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 450px;
+  background-image: url('img-pruebas/ninaFondo2.svg'); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+
+  /* Agregar un gradiente en los costados para dar brillo */
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) left, 
+              linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) right,
+              url('../img-pruebas/ninaFondo2.svg'); /* La imagen se mantiene de fondo */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Media query para pantallas pequeñas (como móviles) */
+@media (max-width: 768px) {
+  /* Desaparecer la imagen de la niña en pantallas pequeñas */
+  .imagen-lateral-3 {
+    display: none;
   }
   
-  
+  /* Asegurarte de que la tarjeta sigue centrada */
+  .contenedor-tarjeta-3 {
+    transform: translateX(0); /* Mueve la tarjeta de nuevo al centro si se movió anteriormente */
+  }
+}
+
+
+/*.-----------------------SECCION DE PROFESORES---------------------------------------*/
+
+section.profesor-card {
+  position: relative;
+  width: 200px; /* Tamaño más pequeño para las tarjetas */
+  height: 260px; /* Altura más pequeña */
+  background: #ffffff3e; /* Fondo blanco */
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.9); /* Sombras más sutiles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  margin: 10px; /* Espaciado entre tarjetas */
+}
+
+.profesor-card:hover {
+  transform: translateY(-5px) scale(1.05); /* Efecto flotante con aumento al pasar el cursor */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1), 0 -5px 15px rgba(255, 255, 255, 0.9);
+}
+
+/* Cara frontal de la tarjeta */
+.profesor-card__front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profesor-card__front img {
+  border-radius: 50%; /* Imagen circular */
+  width: 120px; /* Imagen más pequeña */
+  height: 120px;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.profesor-card__front:hover img {
+  transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
+}
+
+.profesor-card__title {
+  font-size: 18px; /* Texto más pequeño */
+  font-weight: bold;
+  color: #2c3e50; /* Texto con color elegante */
+  margin-bottom: 5px;
+}
+
+.rating i {
+  color: #FFD700; /* Estrellas doradas */
+  margin: 0 2px;
+  font-size: 18px; /* Estrellas más pequeñas */
+}
+
+/* Cara trasera */
+.profesor-card__content {
+  position: absolute;
+  bottom: -100%;
+  background: #ffffff; /* Fondo blanco en la parte trasera */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px; /* Reducción de espacio interior */
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.05); /* Sombra interior */
+  border-radius: 20px; /* Bordes consistentes */
+  transition: all 0.5s ease-in-out;
+}
+
+.profesor-card:hover .profesor-card__content {
+  bottom: 0; /* Subir la cara trasera al hacer hover */
+}
+
+.profesor-card__description {
+  font-size: 14px; /* Texto más pequeño */
+  color: #34495e; /* Color elegante para el texto */
+  line-height: 1.5;
+  font-weight: 500; /* Peso intermedio */
+}
+
+/* Estilo para alinear las tarjetas en fila */
+.card-container {
+  display: flex;
+  justify-content: center; /* Alinea las tarjetas al centro */
+  flex-wrap: wrap; /* Permite que las tarjetas se ajusten si no caben en una sola fila */
+  gap: 10px; /* Espacio entre tarjetas */
+  padding: 20px;
+  overflow-x: auto; /* Permite el desplazamiento horizontal si no caben en la pantalla */
+}
+
+/* Para pantallas grandes, aseguramos que las tarjetas se mantengan en una fila */
+@media (min-width: 1024px) {
+  .card-container {
+    flex-wrap: nowrap; /* Desactiva el ajuste y mantiene las tarjetas en una sola fila */
+  }
+}
+
+/* Medidas responsivas para pantallas pequeñas */
+@media (max-width: 768px) {
+  section.profesor-card {
+    width: 180px; /* Menor tamaño para dispositivos más pequeños */
+    height: 220px; /* Altura más baja */
+  }
+
+  .profesor-card__front img {
+    width: 100px; /* Imagen aún más pequeña */
+    height: 100px;
+  }
+
+  .profesor-card__title {
+    font-size: 16px; /* Títulos más pequeños */
+  }
+
+  .profesor-card__description {
+    font-size: 12px; /* Descripción más pequeña */
+  }
+
+  .rating i {
+    font-size: 16px; /* Estrellas más pequeñas */
+  }
+}
+
+
   /* ------------------------------ FOOTER ------------------------------ */
   
   /* Estilo general del footer */
