@@ -1,5 +1,5 @@
  // Cerrar el modal con animación
- 
+ /**/
  const closeModal = document.getElementById('closeModal');
  const modal = document.getElementById('modal');
  const card = document.querySelector('.modal .card');
