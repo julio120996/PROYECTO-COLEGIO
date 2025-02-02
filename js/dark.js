@@ -4,6 +4,7 @@ const navbar = document.querySelector('.navbar');
 const slideMenu = document.getElementById('slideMenu'); // Seleccionamos el menú lateralnst
 const cardcontainer = document.querySelector('.card-container');
 const container2 = document.querySelector('.container-2');
+const modal2 =  document.querySelector('.modal-2');
 
 // Establecer el modo predeterminado basado en el almacenamiento local (si existe)
 if (localStorage.getItem('darkMode') === 'true') {
@@ -12,6 +13,7 @@ if (localStorage.getItem('darkMode') === 'true') {
   slideMenu.classList.add('dark-mode'); // Agregar clase al menú lateral
   cardcontainer.classList.add('dark-mode');
   container2.classList.add('dark-mode');
+  modal2.classList.add('dark-mode');
 }
 
 themeToggle.addEventListener('change', function() {
@@ -21,6 +23,7 @@ themeToggle.addEventListener('change', function() {
   slideMenu.classList.toggle('dark-mode');
   cardcontainer.classList.toggle('dark-mode');
   container2.classList.toggle('dark-mode');
+  modal2.classList.toggle('dark-mode');
 
   // Guardar el estado en el almacenamiento local
   localStorage.setItem('darkMode', body.classList.contains('dark-mode'));

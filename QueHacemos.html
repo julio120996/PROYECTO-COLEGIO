@@ -1,84 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Colores Turquesa y Azul Turquesa</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f8ff; /* Fondo claro para contraste */
-      color: #333;
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página Web</title>
+  <link rel="icon" href="img/logo.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/styleDark.css" rel="stylesheet">
 
-    h1 {
-      text-align: center;
-      color: #008B8B; /* Turquesa oscuro */
-      margin-top: 20px;
-    }
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
 
-    .color-box {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
 
-    .color-box div {
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .color-box div:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Colores turquesa */
-    .turquesa-clasico { background-color: #40E0D0; } /* Turquesa clásico */
-    .turquesa-pastel { background-color: #AFEEEE; } /* Turquesa pastel */
-    .turquesa-brillante { background-color: #00CED1; } /* Cian brillante */
-    .turquesa-oscuro { background-color: #008B8B; } /* Turquesa oscuro */
-    .turquesa-pale { background-color: #E0FFFF; } /* Turquesa pálido */
-    .verde-mar { background-color: #20B2AA; } /* Verde mar claro */
-    .cian-tropical { background-color: #48D1CC; } /* Turquesa tropical */
-    .turquesa-intenso { background-color: #5F9EA0; } /* Turquesa intenso */
-
-    /* Colores azul turquesa */
-    .azul-turquesa { background-color: #007BA7; } /* Azul turquesa clásico */
-    .azul-turquesa-claro { background-color: #00A5CF; } /* Azul turquesa claro */
-    .azul-turquesa-oscuro { background-color: #005F6A; } /* Azul turquesa oscuro */
-    .azul-turquesa-suave { background-color: #4DB8D1; } /* Azul turquesa suave */
-  </style>
 </head>
+
 <body>
-  <h1>Colores Turquesa y Azul Turquesa Modernos</h1>
-  <div class="color-box">
-    <!-- Turquesa -->
-    <div class="turquesa-clasico">#40E0D0</div>
-    <div class="turquesa-pastel">#AFEEEE</div>
-    <div class="turquesa-brillante">#00CED1</div>
-    <div class="turquesa-oscuro">#008B8B</div>
-    <div class="turquesa-pale">#E0FFFF</div>
-    <div class="verde-mar">#20B2AA</div>
-    <div class="cian-tropical">#48D1CC</div>
-    <div class="turquesa-intenso">#5F9EA0</div>
 
-    <!-- Azul Turquesa -->
-    <div class="azul-turquesa">#007BA7</div>
-    <div class="azul-turquesa-claro">#00A5CF</div>
-    <div class="azul-turquesa-oscuro">#005F6A</div>
-    <div class="azul-turquesa-suave">#4DB8D1</div>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary xyz" data-xyz="fade small-1 down-0.5 duration-4 ease-soft"> 
+    <div class="container">
+      <a href="index.html" class="navbar-brand d-flex align-items-center">
+        <img src="img/logo.svg" alt="Logo" class="img-menu img-fluid" id="logo">
+        <span class="titulo-logo ms-2">César Vallejo<br>Mendoza</span>
+      </a>
+
+
+
+      <button class="navbar-toggler" type="button" id="menuToggle">
+        <i class="bi bi-list" id="burgerIcon"></i> <!-- Aquí estamos usando el ícono de lista -->
+      </button>
+      
+      
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold fs-6" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold fs-6" href="QueProponemos.html">Que Proponemos</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link fw-semibold fs-6" href="Biblioteca.html">Biblioteca y Recursos</a>
+          </li>
+        
+        </ul>
+
+        <!-- Redes sociales en la barra de navegación -->
+        <div class="navbar-social-icons d-flex gap-3">
+          <a href="https://wa.me/1234567890" target="_blank" class="text-dark fs-4"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://facebook.com" target="_blank" class="text-dark fs-4"><i class="fab fa-facebook"></i></a>
+          <a href="https://instagram.com" target="_blank" class="text-dark fs-4"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com" target="_blank" class="text-dark fs-4"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="dark d-flex gap-3">
+        <!-- Botón de cambio de tema más grande -->
+        <label for="themeToggle" class="themeToggle st-sunMoonThemeToggleBtn" type="checkbox">
+          <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+          <svg width="30" height="30" viewBox="0 0 20 20" fill="currentColor" stroke="none">
+            <mask id="moon-mask">
+              <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+              <circle cx="11" cy="3" r="8" fill="black"></circle>
+            </mask>
+            <circle class="sunMoon" cx="10" cy="10" r="8" mask="url(#moon-mask)"></circle>
+            <g>
+              <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+              <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+              <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+              <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+              <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+              <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+            </g>
+          </svg>
+        </label>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="slideMenu">
+    <div class="menu-header">
+      <img src="img/logo.svg" alt="Logo" class="img-fluid">
+      <i id="closeMenu" class="fas fa-times"></i>
+    </div>
+    <ul class="menu-list">
+      <li ><a href="index.html">Inicio</a></li>
+      <li><a href="QueProponemos.html">Qué Proponemos</a></li>
+     
+      <li ><a href="Biblioteca.html">Biblioteca y Recurso</a></li>
+      
+    </ul>
+    <!-- Redes sociales en el menú deslizable -->
+    <div class="menu-social-icons">
+      <a href="https://wa.me/1234567890" target="_blank" class="text-dark fs-4"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://facebook.com" target="_blank" class="text-dark fs-4"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank" class="text-dark fs-4"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com" target="_blank" class="text-dark fs-4"><i class="fab fa-tiktok"></i></a>
+    </div>
   </div>
-</body>
-</html>
 
+
+
+  <br>
+
+
+
+  <!-- Footer  -->
+  <footer class="footer-container">
+    <div class="footer-top">
+      <div class="footer-column">
+        <h3 class="footer-title">Cesar Vallejo Mendoza</h3>
+        <div class="footer-logo">
+          <img src="img/logo.svg" alt="Logo Imperial Real Estate" />
+        </div>
+        <p class="footer-item">
+          <img class="footer-icon" src="img/map.svg" alt="Ubicación" />
+          Lima, Av La Molina, 12
+        </p>
+        <p class="footer-item">
+          <img class="footer-icon" src="img/phone.svg" alt="Teléfono" />
+          +51 985 988 558
+        </p>
+        <p class="footer-item">
+          <img class="footer-icon" src="img/mail.svg" alt="Correo" />
+          cesarvallejjomendoza23@gmail.com
+        </p>
+        <p class="footer-item">
+          <img class="footer-icon" src="img/icons8-reloj.svg" alt="Horario" />
+          Lunes - Viernes: 9:00 AM - 7:00 PM
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Encuéntranos</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="200"
+          style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Síguenos</h3>
+        <div class="social-links">
+          <a href="#" target="_blank"><img class="social-icon" src="img/facebook.png" alt="Facebook" /></a>
+          <a href="#" target="_blank"><img class="social-icon" src="img/instagram.png" alt="Instagram" /></a>
+          <a href="#" target="_blank"><img class="social-icon" src="img/tik-tok.png" alt="TikTok" /></a>
+          <a href="#" target="_blank"><img class="social-icon" src="img/whatsapp.png" alt="WhatsApp" /></a>
+        </div>
+        <div class="footer-links">
+          <a href="#">Aviso Legal</a>
+          <a href="#">Política de Cookies</a>
+          <a href="#">Preguntas Frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; 2025 Cesar Vallejo Mendoza. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+
+
+
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dark.js"></script>
+  <script src="js/animacionesVentana.js"></script>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <script src="js/menubar.js"> </script>
+
+</body>
+
+</html>

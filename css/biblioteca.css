@@ -1,0 +1,201 @@
+/* Contenedor del video */
+.video-container-2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-container-2 video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    filter: brightness(0.5) contrast(1.2);
+  }
+  
+  /* Panel semitransparente */
+  .video-container-2 .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo negro con más opacidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  
+  .video-container-2 .overlay h1 {
+    font-size: 3rem;
+    font-family: "Georgia", serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .video-container-2 .overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-family: "Verdana", sans-serif;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .video-container-2 .overlay a {
+    display: inline-block;
+    background: #4caf50; /* Verde para dar sensación de frescura y crecimiento */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .video-container-2 .overlay a:hover {
+    background: #45a049;
+    transform: scale(1.05);
+  }
+  
+  
+ /* Media Queries para ajustar el video en pantallas pequeñas */
+@media (max-width: 768px) {
+    .video-container-2 {
+      height: 80vh; /* Ajusta la altura para pantallas más pequeñas */
+      overflow: hidden; /* Oculta los bordes que sobresalgan */
+    }
+  
+    .video-container-2 video {
+      width: 100%;
+      height: 120%; /* Aumenta la altura del video para cubrir más área */
+      object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+      transform: translateY(-20%); /* Mueve el video hacia arriba para tapar bordes negros */
+    }
+  
+    .video-container-2 .overlay h1 {
+      font-size: 2rem; /* Reduce el tamaño de la fuente para pantallas pequeñas */
+    }
+  
+    .video-container-2 .overlay p {
+      font-size: 1rem; /* Reduce el tamaño de la fuente para pantallas pequeñas */
+    }
+  
+    .video-container-2 .overlay a {
+      padding: 10px 20px; /* Ajusta el padding del botón para pantallas pequeñas */
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .video-container-2 {
+      height: 40vh; /* Ajusta la altura para pantallas muy pequeñas */
+      overflow: hidden; /* Oculta los bordes que sobresalgan */
+    }
+  
+    .video-container-2 video {
+      width: 100%;
+      height: 140%; /* Aumenta aún más la altura del video */
+      object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+      transform: translateY(-10%); /* Mueve el video más hacia arriba */
+    }
+  
+    .video-container-2 .overlay h1 {
+      font-size: 1.5rem; /* Reduce aún más el tamaño de la fuente */
+    }
+  
+    .video-container-2 .overlay p {
+      font-size: 0.9rem; /* Reduce aún más el tamaño de la fuente */
+    }
+  
+    .video-container-2 .overlay a {
+      padding: 8px 16px; /* Ajusta el padding del botón para pantallas muy pequeñas */
+      font-size: 1rem;
+    }
+  }
+
+
+  /*-------------------------------------*/
+
+
+
+
+  .container-3 {
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container-3 .slider {
+    width: 80vw;
+    height: 70vh;
+    display: flex;
+    perspective: 1000px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-3 .slider div {
+    position: absolute;
+    width: 26vw;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    transition: all 1s ease-in-out;
+}
+
+.container-3 .box1 { background: url('../pruebs/1.svg');}
+.container-3 .box2 { background: url('../pruebs/2.svg'); }
+.container-3 .box3 { background: url('../pruebs/4.svg'); }
+.container-3 .box4 { background: url('../pruebs/5.svg'); }
+.container-3 .box5 { background: url('../pruebs/6.svg'); }
+.container-3 .box6 { background: url('../pruebs/7.svg'); }
+.container-3 .box7 { background: url('../pruebs/8.svg'); }
+vg
+.container-3 .slider div:nth-child(1) { transform: scale(0.6) translateX(-45vw); z-index: 1; }
+.container-3 .slider div:nth-child(2) { transform: scale(0.7) translateX(-30vw); z-index: 2; }
+.container-3 .slider div:nth-child(3) { transform: scale(0.8) translateX(-15vw); z-index: 3; }
+.container-3 .slider div:nth-child(4) { transform: scale(1) translateX(0); z-index: 4; }
+.container-3 .slider div:nth-child(5) { transform: scale(0.8) translateX(15vw); z-index: 3; }
+.container-3 .slider div:nth-child(6) { transform: scale(0.7) translateX(30vw); z-index: 2; }
+.container-3 .slider div:nth-child(7) { transform: scale(0.6) translateX(45vw); z-index: 1; }
+
+@media (max-width: 768px) {
+    .container-3 {
+        height: 50vh; /* Ajusta la altura para pantallas pequeñas */
+        margin-top: 9px; /* Reduce el margen superior para evitar separación excesiva */
+    }
+
+    .container-3 .slider {
+        width: 100vw;
+        height: 40vh; /* Reducido para evitar alargamiento */
+    }
+
+    .container-3 .slider div {
+        width: 40vw; /* Más pequeño para mantener proporciones */
+        height: 30vh; /* Ajusta la altura de las cajas */
+        background-size: cover; /* Asegura que la imagen cubra toda la caja */
+        border-radius: 10px; /* Reduce el radio de borde para pantallas pequeñas */
+    }
+
+    .container-3 .slider div:nth-child(1) { transform: scale(0.5) translateX(-60vw); }
+    .container-3 .slider div:nth-child(2) { transform: scale(0.6) translateX(-40vw); }
+    .container-3 .slider div:nth-child(3) { transform: scale(0.7) translateX(-20vw); }
+    .container-3 .slider div:nth-child(4) { transform: scale(0.9) translateX(0); }
+    .container-3 .slider div:nth-child(5) { transform: scale(0.7) translateX(20vw); }
+    .container-3 .slider div:nth-child(6) { transform: scale(0.6) translateX(40vw); }
+    .container-3 .slider div:nth-child(7) { transform: scale(0.5) translateX(60vw); }
+}

@@ -1,94 +1,105 @@
-/* Estilos para el modo oscuro */
+/* Estilos GENERALES */
 body.dark-mode {
-    background: #2A2A2A; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-  }
-  
-  /* Barra de navegación en modo oscuro */
-  .navbar.dark-mode {
-    background-color: #1f1f1f90 !important; /* Fondo oscuro en el navbar */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-    
-  }
-  
-  /* Enlaces de la barra de navegación en modo oscuro */
-  .navbar.dark-mode  .nav-link {
-    color: #fff !important; /* Texto blanco en los enlaces */
-  }
-  
-  .navbar.dark-mode  .navbar-nav .nav-link:hover {
-    color: #f5f5f5 !important; /* Color más claro al pasar el mouse */
-  }
-  
-  /* Iconos de redes sociales en modo oscuro */
-  .navbar.dark-mode .navbar-social-icons a {
-    color: #fff !important; /* Iconos blancos */
-  }
-  
-  .navbar.dark-mode .titulo-logo {
-    color: #ffffff;
-  }
-  
-  .navbar.dark-mode #burgerIcon {
-    font-size: 30px; /* Ajusta el tamaño del ícono */
-    color: #ffffffd7;  /* Cambia el color del ícono */
-  }
-  
-  .navbar.dark-mode .navbar-toggler:hover #burgerIcon {
-    color: #ffffff; /* Cambia el color cuando el mouse pasa por encima */
-  }
-  
-  
-  .dark-mode #slideMenu  {
-    background: #2A2A2A; /* Fondo oscuro */
-  }
+  background: #2a2a2a; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+}
 
-  .dark-mode #slideMenu  .menu-list a {
-  
-    color: #ffffff;
- 
-  }
-  
-  
-  .dark-mode #slideMenu  .menu-list a:hover {
-    color: #ffffff;
-    
-  }
+/*------------ ----nbar o menu bar-------------  */
 
-  .dark-mode #slideMenu .menu-social-icons a {
-    color: #ffffff !important;
-  }
+.navbar.dark-mode {
+  background-color: #1f1f1f90 !important; /* Fondo oscuro en el navbar */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+}
 
-  .dark-mode .card-container .profesor-card__title  {
-   color: #ffffff;
-  }
+.navbar.dark-mode .nav-link {
+  color: #fff !important; /* Texto blanco en los enlaces */
+}
 
-  .dark-mode .card-container .profesor-card__content  {
-    background-color: #282626fe;
-   
-   }
- 
-   .dark-mode .card-container .profesor-card__description {
-   color: #fffffffe;
-   
-   }
- 
-   .dark-mode .card-container  section.profesor-card {
-    box-shadow:none; /* Sombras más sutiles */
-  }
+.navbar.dark-mode .navbar-nav .nav-link:hover {
+  color: #f5f5f5 !important; /* Color más claro al pasar el mouse */
+}
 
-  .dark-mode  .section-title h2 {
+/* Iconos de redes sociales en modo oscuro */
+.navbar.dark-mode .navbar-social-icons a {
+  color: #fff !important; /* Iconos blancos */
+}
 
-    color :#ffffff
-  }
- 
-  
-  .dark-mode .horizontal-line::after {
-  
+.navbar.dark-mode .titulo-logo {
+  color: #ffffff;
+}
+
+.navbar.dark-mode #burgerIcon {
+  font-size: 30px; /* Ajusta el tamaño del ícono */
+  color: #ffffffd7; /* Cambia el color del ícono */
+}
+
+.navbar.dark-mode .navbar-toggler:hover #burgerIcon {
+  color: #ffffff; /* Cambia el color cuando el mouse pasa por encima */
+}
+
+/*  -------------Para el menu deslisable en modo telefono -----------------*/
+
+.dark-mode #slideMenu {
+  background: #2a2a2a; /* Fondo oscuro */
+}
+
+.dark-mode #slideMenu .menu-list a {
+  color: #ffffff;
+}
+
+.dark-mode #slideMenu .menu-list a:hover {
+  color: #ffffff;
+}
+
+.dark-mode #slideMenu .menu-social-icons a {
+  color: #ffffff !important;
+}
+
+/*------------------- Para la seccion de Profesores -------------*/
+
+.dark-mode .card-container .profesor-card__title {
+  color: #ffffff;
+}
+
+.dark-mode .card-container .profesor-card__content {
+  background-color: #282626fe;
+}
+
+.dark-mode .card-container .profesor-card__description {
+  color: #fffffffe;
+}
+
+.dark-mode .card-container section.profesor-card {
+  box-shadow: none; /* Sombras más sutiles */
+}
+
+.dark-mode .section-title h2 {
+  color: #ffffff;
+}
+
+/* Par la linea se depacion de las seeciones hmtl  */
+.dark-mode .horizontal-line::after {
   background: radial-gradient(
     ellipse at top center,
     rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0) 50% 
+    rgba(255, 255, 255, 0) 50%
   );
- 
+}
+
+/* Para el modal Flotante del NOVEDADES EDUCATIAVS  */
+.dark-mode .modal-2 {
+  background: #2a2a2a; /* Fondo grafito metálico */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .modal-2 .modal-2-texto {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .modal-2 .modal-2-titulo {
+  color: #ffffff;
 }
